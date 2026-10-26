@@ -84,6 +84,20 @@ my_skill/
 | `continuous-improvement` | Plugin self-improvement loop: retros, feedback into SKILL.md edits, changelog, lessons. |
 | `skill-health-check` | Read-only inventory audit: freshness, overlap, vague triggers, ranked recommendations. |
 
+## Works with any agent, not just Claude Code
+
+The skills are plain markdown — the only agent-specific part is *discovery*. So the plugin ships a universal entry point:
+
+- **[`AGENTS.md`](AGENTS.md)** (root): read automatically by agents following the [AGENTS.md convention](https://agents.md) — OpenAI Codex, Gemini CLI, Cursor, Zed, OpenCode, and others. It contains the profile-first rule, a trigger → skill routing index for all 20 skills, and the improvement-loop rules.
+- **Claude Code**: native discovery via `.claude-plugin/plugin.json` + `skills/*/SKILL.md` frontmatter and `/my-skill:*` commands.
+- **Any other agent** (or no agent): the files are self-contained — point your agent at the catalog table in this README and let it read the matching `skills/<name>/SKILL.md`.
+
+| Agent | How it uses my_skill |
+|---|---|
+| Claude Code | Native skills + `/my-skill:` commands |
+| Codex / Gemini CLI / Cursor / Zed / OpenCode | Auto-reads `AGENTS.md`, loads `skills/<name>/SKILL.md` on demand |
+| Any other tool | Paste the request + the relevant SKILL.md content into the prompt |
+
 ## Installation
 
 Three ways to install. Full details (requirements, verification, troubleshooting, uninstall) in [`docs/INSTALLATION.md`](docs/INSTALLATION.md).

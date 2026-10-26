@@ -70,6 +70,22 @@ Claude Code plugins can be distributed through a **marketplace repo** — a repo
 
 then push and share with `/plugin marketplace add`. Keep the marketplace manifest in a separate repo from the plugin itself if you plan to version them independently.
 
+## Using with other agents (not just Claude Code)
+
+Claude Code discovers this plugin natively via `.claude-plugin/plugin.json`. Every
+other modern agent (Codex, Gemini CLI, Cursor, Zed, OpenCode, …) uses the
+[`AGENTS.md`](../AGENTS.md) convention instead:
+
+1. Put this repo anywhere on disk (or at a project's root, for per-project use).
+2. Open your agent inside or beneath the folder containing `AGENTS.md` — it will
+   auto-read the profile-first rule and the trigger → skill routing index.
+3. Ask naturally; the agent reads the matched `skills/<skill-name>/SKILL.md` in full.
+4. Edit `docs/workflow-profile.md` to make it yours (see `CUSTOMIZATION.md`).
+
+Note: `/my-skill:*` slash commands are Claude Code–only; other agents get the same
+behavior by describing the task in natural language (the AGENTS.md index maps the
+phrases for them).
+
 ## 3. Verify the plugin is loaded
 
 1. Start (or restart) Claude Code.
