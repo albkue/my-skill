@@ -4,13 +4,17 @@ All documented plugin changes. Newest first. Format: version — date — Added 
 
 ## [Unreleased]
 
-### Added
+(none — ready for next change)
+
+## 1.6.0 — 2026-10-26
+
+**Added**
 - Cross-agent support: root `AGENTS.md` (AGENTS.md-convention entry point — OpenAI Codex,
   Gemini CLI, Cursor, Zed, OpenCode, others) with the profile-first rule, a
   trigger → skill routing index for all 20 skills, and the improvement-loop rules.
 - README "Works with any agent" section; INSTALLATION.md per-agent usage section.
 
-### Fixed
+**Fixed**
 - AGENTS.md routing index verified against on-disk skills (20/20 targets exist; no dangling references).
 
 ### Added

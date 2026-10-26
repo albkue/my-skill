@@ -4,7 +4,7 @@ You are working with the **my_skill** plugin — a self-improving personal engin
 workflow plugin (20 skills, 10 slash commands) originally built for Claude Code, but
 usable by any agent that can read markdown files.
 
-Version: 1.5.0 · License: MIT · Author: Sothy Eng ([albkue](https://github.com/albkue))
+Version: 1.6.0 · License: MIT · Author: Sothy Eng ([albkue](https://github.com/albkue))
 
 ## Universal rule: read the workflow profile first
 
