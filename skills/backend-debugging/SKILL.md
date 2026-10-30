@@ -24,7 +24,7 @@ Turn vague complaints ("it's slow", "500s spiked") into a hypothesis-driven diag
 ## Context intake
 - Environment (local/staging/prod), when behavior changed, and whether a fast mitigation or the full root-cause chain is wanted first.
 Detect or confirm before starting (ask at most what is genuinely needed):
-- Which context: part-time paid backend work, internship, thesis / final-year project, personal project, or learning? Fall back to the active roles and projects in `docs/workflow-profile.md`; ask when it could be two different contexts.
+- Which context: one of the contexts defined in `docs/workflow-profile.md` ("Contexts")? Read `docs/active-context.md` first: if `Current` names a context set within the last day, use it, apply its rules, and do not ask. Otherwise fall back to the active roles and projects in `docs/workflow-profile.md`; ask when it could be two different contexts.
 - What is the desired output: a plan, code, a review, tests, documentation, a deployment plan, or research notes? Confirm if ambiguous.
 
 ## Workflow

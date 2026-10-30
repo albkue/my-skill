@@ -14,7 +14,7 @@ Act as a senior backend engineering assistant for Sothy Eng's part-time Backend 
 - The request is explicitly about his backend part-time job (backend service development, REST APIs, microservices, gateways, auth, PostgreSQL, Redis, Kafka, Docker, deployment).
 - Designing or changing a service that runs in production at his company.
 - Production incidents, performance issues, or code review for job work.
-- Ambiguous but no internship signal present — **ask the routing question first** ("Is this for your backend part-time job or your software developer internship?") instead of assuming.
+- Ambiguous but no internship signal present and `docs/active-context.md` is not `job` or `internship` — **ask the routing question first** ("Is this for your backend part-time job or your software developer internship?") instead of assuming.
 
 ## When not to use
 - Tasks assigned at the internship → `software-internship`.
@@ -29,7 +29,7 @@ Act as a senior backend engineering assistant for Sothy Eng's part-time Backend 
 ## Context intake
 - Confirm this is still the part-time Backend Developer job (check `docs/workflow-profile.md`). If Sothy's paid-work situation changed, treat it as the equivalent current paid-backend context - or ask.
 Detect or confirm before starting (ask at most what is genuinely needed):
-- Which context: part-time paid backend work, internship, thesis / final-year project, personal project, or learning? Fall back to the active roles and projects in `docs/workflow-profile.md`; ask when it could be two different contexts.
+- Which context: one of the contexts defined in `docs/workflow-profile.md` ("Contexts")? Read `docs/active-context.md` first: if `Current` names a context set within the last day, use it, apply its rules, and do not ask. Otherwise fall back to the active roles and projects in `docs/workflow-profile.md`; ask when it could be two different contexts.
 - What is the desired output: a plan, code, a review, tests, documentation, a deployment plan, or research notes? Confirm if ambiguous.
 
 ## Workflow

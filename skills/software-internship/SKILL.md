@@ -26,7 +26,7 @@ Help Sothy succeed at his Software Developer internship: implement assigned task
 ## Context intake
 - Confirm this is still the Software Developer internship (check `docs/workflow-profile.md`). If the internship ended, say what changed and route to the closest active context instead of guessing.
 Detect or confirm before starting (ask at most what is genuinely needed):
-- Which context: part-time paid backend work, internship, thesis / final-year project, personal project, or learning? Fall back to the active roles and projects in `docs/workflow-profile.md`; ask when it could be two different contexts.
+- Which context: one of the contexts defined in `docs/workflow-profile.md` ("Contexts")? Read `docs/active-context.md` first: if `Current` names a context set within the last day, use it, apply its rules, and do not ask. Otherwise fall back to the active roles and projects in `docs/workflow-profile.md`; ask when it could be two different contexts.
 - What is the desired output: a plan, code, a review, tests, documentation, a deployment plan, or research notes? Confirm if ambiguous.
 
 ## Workflow
@@ -82,7 +82,7 @@ Detect or confirm before starting (ask at most what is genuinely needed):
 2. **Request:** "My supervisor asked me to fix this bug I can't even reproduce."
    **Behavior:** Guide a reproduction plan (exact steps, environment, logs, recent related changes), suggest what to check first, outline a fix approach once reproduced, and draft a short update message to the supervisor with findings so far.
 3. **Request:** "Help me deploy my new analytics endpoint to my company's AWS."
-   **Behavior:** Ambiguous context — ask "Is this for your backend part-time job or your software developer internship?" before doing anything else.
+   **Behavior:** Ambiguous context and `docs/active-context.md` unset or stale — ask "Is this for your backend part-time job or your software developer internship?" before doing anything else.
 
 ## Lessons learned
 

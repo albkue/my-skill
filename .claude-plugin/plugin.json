@@ -1,6 +1,6 @@
 {
   "name": "my-skill",
-  "version": "1.6.0",
+  "version": "1.10.0",
   "description": "Adaptive personal engineering toolkit for Sothy Eng: backend job work, developer internship, intelligent car-part retrieval final-year project, and data/ML learning. Skills read docs/workflow-profile.md first, so the toolkit tracks role and project changes via workflow-adapter. Includes observability, documentation, applied-ai-delivery, production-delivery, continuous-improvement, and skill-health-check.",
   "author": {
     "name": "Sothy Eng"

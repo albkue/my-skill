@@ -1,6 +1,6 @@
 ---
 name: workflow-adapter
-description: Detect and reconcile drift between docs/workflow-profile.md and the user's actual current work. Use when the request mentions a role, project, stack, team, or priority the profile doesn't reflect, when the user says "my workflow changed", "update my workflow profile", "I'm moving to X", "I finished Y", or when two skills disagree about which context applies. Do NOT use to edit skill workflows or descriptions (that's continuous-improvement), to audit the whole inventory (that's skill-health-check), or to do the actual work task itself.
+description: Detect and reconcile drift between docs/workflow-profile.md and the user's actual current work. Use when the request mentions a role, project, stack, team, or priority the profile doesn't reflect, when the user says "my workflow changed", "update my workflow profile", "I'm moving to X", "I finished Y", when two skills disagree about which context applies, or when the user changes job or role and needs the skill set to follow (reuse what fits, draft what is missing). Do NOT use to edit skill workflows or descriptions (that's continuous-improvement), to audit the whole inventory (that's skill-health-check), or to do the actual work task itself.
 version: 1.0.0
 author: Sothy Eng
 ---
@@ -31,10 +31,19 @@ Keep the profile — and therefore the whole plugin — truthful about the user'
 2. Classify the drift: retired role/project · new role/project · stack change · team-convention change · priority re-rank · environment change.
 3. Show the drift as a side-by-side table: profile says X ↔ request says Y.
 4. Ask at most 2–3 clarifying questions for genuinely ambiguous parts (effective date, stack specifics, what to deprecate) — never re-ask what the request already states.
-5. Propose the exact `docs/workflow-profile.md` diff: edits + dated entries moved to *Completed / paused workflows*.
+5. Propose the exact `docs/workflow-profile.md` diff (and reset `docs/active-context.md` to `unset` if the active context just ended): edits + dated entries moved to *Completed / paused workflows*.
 6. After approval, apply the edit and update `Last updated:`.
 7. If the drift implies skill-level consequences (e.g., a context skill now points at a retired role), hand off to `continuous-improvement` with a one-line rationale — do not edit SKILL.md files here.
 8. Record the change in `docs/CHANGELOG.md` under the current version.
+
+## Transition playbook (new or changed role)
+Run after steps 1-4 when the drift class is a new role/project or a retired one. Output is ONE proposal; nothing is written before approval.
+1. **Capability map.** List 5-8 capabilities the new role needs day to day (e.g. data analyst: SQL analysis, metric definitions, data validation, statistics, dashboards, stakeholder narrative). Ask the user to correct the list.
+2. **Match each capability, in this order:** (a) an existing my-skill skill; (b) an installed non-my-skill skill (read the available skill list in context; never invent names); (c) a gap.
+3. **New context.** Propose a context id and 3-5 safety rules for the profile's "Contexts" section, plus a `- Defer to: <skill>, <skill>` line naming the external skills from 2(b), so the dispatcher routes those requests there while still applying the context's rules.
+4. **New skills for gaps only.** Draft at most 2-3 from `templates/SKILL-template.md` (frontmatter, 'Do NOT use' boundary, workflow that reads the profile and active context). Show drafts in full. Prefer reuse: a gap becomes a skill only if no installed skill covers it.
+5. **Demote/retire candidates.** Existing skills tied to the retired role, with fire counts from `docs/usage-log.md` when it exists. Propose only; edits to existing skills go to `continuous-improvement`.
+6. **Apply after approval:** profile diff, new context, `Last updated`, `docs/active-context.md` reset to `unset`; create approved new skill folders; add their 3 should / 2 should_not prompts to `evals/triggers.json`; add them to `AGENTS.md` routing; changelog; run `python scripts/validate.py` and report the result.
 
 ## Adaptation rules
 - Role changes (job/internship ended): mark *Completed / paused* with date; if an equivalent new role exists, map personal context skills to it only via `continuous-improvement`.
@@ -56,12 +65,14 @@ Keep the profile — and therefore the whole plugin — truthful about the user'
 6. **Changelog note** — entry added.
 
 ## Rules and constraints
-- The profile is the output; SKILL.md files are never edited by this skill.
+- The profile is the output. Existing SKILL.md files are never edited by this skill (hand off to `continuous-improvement`); the one exception is creating NEW skill folders during an approved transition.
 - Nothing about the user's identity is invented — placeholders like `<my-github-username>` only where applicable.
 - No private data: team names, internal URLs, client names stay generic or out.
 - Deletion from the profile always means *move to Completed/paused with a date*, never silent removal.
 
 ## Quality checklist
+- [ ] Transition: capability map user-confirmed; every capability marked reuse (my-skill), reuse (installed), or gap.
+- [ ] Transition: no new skill drafted for a capability an installed skill already covers.
 - [ ] Drift classified and shown side-by-side before any edit.
 - [ ] Proposed diff shown and approved before applying.
 - [ ] Profile `Last updated` date refreshed.

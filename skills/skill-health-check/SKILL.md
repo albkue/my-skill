@@ -27,7 +27,7 @@ A periodic read-only review of my-skill's inventory against Sothy's current prof
 - Scope: all skills, or a subset?
 
 ## Workflow
-1. Read `docs/workflow-profile.md` and every `skills/*/SKILL.md` in the my-skill plugin.
+1. Read `docs/workflow-profile.md` and every `skills/*/SKILL.md` in the my-skill plugin. If `docs/usage-log.md` exists, count fires per skill: zero fires over a month is an archive candidate, and the count backs "unused" claims with data.
 2. Build the inventory table: skill | purpose (1 line) | version | last-updated | usage status (from lesson entries; "unknown" if none yet).
 3. Overlap detection: pair up skills whose descriptions or "When to use" claim the same trigger zone; verify against each one's "When not to use" whether the boundary is real or blurred.
 4. Structure audit per skill: frontmatter completeness, description specificity (would this description trigger correctly on its own?), workflow concreteness (numbered, bounded, no "be helpful" fluff), presence of Context intake / Adaptation rules / Quality checklist / Lessons learned.

@@ -43,6 +43,10 @@ my_skill/
 ├── CONTRIBUTING.md              # how to contribute a skill
 ├── commands/                    # slash commands (manual entry points / dispatchers)
 ├── skills/<skill-name>/SKILL.md # one skill per folder
+├── hooks/hooks.json            # PostToolUse hook: logs which skills fire to docs/usage-log.md
+├── scripts/validate.py          # plugin validator (run before every commit; CI runs it too)
+├── evals/transitions.json      # role-change scenarios for testing workflow-adapter
+├── evals/triggers.json         # should / should-not trigger prompts per skill
 ├── templates/                   # SKILL.md scaffold + worked-example template (copy, don't edit in place)
 ├── docs/
 │   ├── INSTALLATION.md          # detailed install/update/uninstall instructions
@@ -50,6 +54,7 @@ my_skill/
 │   ├── CREDITS.md               # author, built-with, thanks
 │   ├── ROADMAP.md               # next / later / ideas
 │   ├── CHANGELOG.md             # documented plugin changes (newest first)
+│   ├── active-context.md        # today's context (job/internship/thesis/learning), set by /my-skill:today
 │   ├── workflow-profile.md      # roles/projects/stacks/priorities — read by every skill first
 │   └── lessons-learned.md       # real-usage lessons feed (maintained by continuous-improvement)
 ├── references/                  # production checklists, question bank (not auto-loaded)

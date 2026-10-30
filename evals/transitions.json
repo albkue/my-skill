@@ -1,0 +1,34 @@
+[
+  {
+    "say": "My internship ended; I'm now a full-time data engineer.",
+    "profile": ["move intern role to Completed with date", "add data engineer role", "new context id e.g. de-job with backfill/schema-change/data-quality rules"],
+    "reuse_my_skill": ["data-engineering", "observability", "documentation", "backend-debugging", "backend-deployment"],
+    "reuse_installed": ["aai-stack-postgres:postgres-migrations", "aai-devops:ci-setup"],
+    "new_skills": [],
+    "retire_candidates": ["software-internship", "internship-communication"]
+  },
+  {
+    "say": "I'm switching to a data analyst job.",
+    "profile": ["add data analyst role", "new context id e.g. analyst-job", "rules: state metric definition, check sample size, no production data in outputs"],
+    "reuse_my_skill": ["documentation", "learning-roadmap"],
+    "reuse_installed": ["data:analyze", "data:sql-queries", "data:validate-data", "data:create-viz", "data:statistical-analysis"],
+    "new_skills": ["analysis-to-insight (only if installed skills leave a gap in question-to-narrative)"],
+    "retire_candidates": ["backend-job", "software-internship"]
+  },
+  {
+    "say": "My thesis is submitted and defended.",
+    "profile": ["move thesis project to Completed with date", "reset active context if it was thesis"],
+    "reuse_my_skill": ["interview-prep", "learning-roadmap"],
+    "reuse_installed": [],
+    "new_skills": [],
+    "retire_candidates": ["thesis-helper", "car-part-retrieval"]
+  },
+  {
+    "say": "My team moved from Kafka to RabbitMQ.",
+    "profile": ["update Main tech stacks and Team conventions only", "no new context, no skill retirement"],
+    "reuse_my_skill": ["backend-job", "backend-debugging", "observability"],
+    "reuse_installed": [],
+    "new_skills": [],
+    "retire_candidates": []
+  }
+]

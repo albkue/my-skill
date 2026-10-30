@@ -31,6 +31,32 @@ Last updated: 2026-10-26
 - Job: [staging → production; add specifics as they become relevant]
 - Final-year project: dev machine, GPU optional, free/open tools only.
 
+## Contexts
+
+(Optional per context: a `- Defer to: skill-a, skill-b` line. The dispatcher prefers those skills for matching requests while still applying the context's rules.)
+
+Each `###` heading is a context id usable with `/my-skill:today <id>`. Add, rename, or delete
+contexts freely (then run `/my-skill:workflow-adapter`). Rules apply on top of each skill's
+own rules while that context is active.
+
+### job
+- Paid production system: no deploy, migration, destructive SQL, or config change without an explicit rollback plan and a confirmation step.
+- Never paste secrets, internal URLs, or customer data into outputs, docs, or the vault.
+- Reviews and tests are required before any "ready to ship" claim.
+
+### internship
+- Unknown conventions or requirements become a question for the supervisor, not a guess.
+- Keep work scoped to the assigned ticket; draft the supervisor update alongside the work.
+- Never reuse job code, configs, or data in internship outputs.
+
+### thesis
+- Results need provenance (seed, config, dataset version, commit); mark unreproducible numbers `[REP]`.
+- Write outputs to the vault folder `01-Thesis\` per the project CLAUDE.md and log the sync.
+- Claims in thesis text must trace to a logged experiment or a cited source.
+
+### learning
+- Teach before building; small runnable examples; no production-safety ceremony.
+
 ## Current priorities
 1. Final-year project: build + evaluate the retrieval pipeline, write the thesis.
 2. Job work shipped safely (correctness, reviews, controlled deploys).

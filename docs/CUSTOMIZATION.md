@@ -2,6 +2,14 @@
 
 my_skill is built so that adapting it means editing **one small file plus a few descriptions** — never rewriting every skill. This guide covers the safe changes, in order of cost.
 
+## 0. Fastest path: `/my-skill:setup`
+
+Run `/my-skill:setup`. It interviews you (roles, projects, what must never mix, safety rules) and writes `docs/workflow-profile.md` from `docs/workflow-profile.example.md`, including your own **Contexts**. Then `/my-skill:today <context-id>` selects the active one. Contexts are data in the profile, not hard-coded in the skills, so yours can be anything (`freelance`, `client-acme`, `phd`, `oss`).
+
+The plugin has two layers:
+- **Engine (generic):** profile, active context, `workflow-adapter`, `continuous-improvement`, `skill-health-check`, the validator, the usage-log hook.
+- **Persona skills (examples from the original author):** `backend-job`, `software-internship`, `internship-communication`, `car-part-retrieval`, `thesis-helper`. Repoint or delete these per section 2.
+
 ## 1. The control surface: `docs/workflow-profile.md`
 
 Every skill reads this file first and asks you to update it if it's missing or stale. Edit these sections:
@@ -11,6 +19,7 @@ Every skill reads this file first and asks you to update it if it's missing or s
 - **Main tech stacks** — languages, frameworks, DBs, infra you actually use.
 - **Team conventions** — branch/PR/commit style per team, deployment process.
 - **Deployment environment** — where things actually ship.
+- **Contexts** — one `###` block per context id, with its safety rules. These ids are what `/my-skill:today` accepts.
 - **Current priorities** — ranked; skills use this to weight suggestions.
 - **Completed / paused workflows** — retired roles/projects with a date. **This section is the migration mechanism**: moving an item here is what tells the skills to stop routing to it.
 

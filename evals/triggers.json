@@ -1,0 +1,343 @@
+{
+  "api-design": {
+    "should": [
+      "Design the REST endpoints for a parts-catalog service with pagination and filtering",
+      "What status codes and error body should POST /orders return on a duplicate request?",
+      "Write an OpenAPI spec for the search-by-image endpoint"
+    ],
+    "should_not": [
+      {
+        "prompt": "My /orders endpoint returns 500 after the last deploy",
+        "route": "backend-debugging"
+      },
+      {
+        "prompt": "Review this controller PR for issues",
+        "route": "backend-code-review"
+      }
+    ]
+  },
+  "applied-ai-delivery": {
+    "should": [
+      "Take my embedding experiment to something I can hand over as a demo",
+      "Package this model with an evaluation report and provenance",
+      "Make the retrieval demo real, with a baseline and seeded configs"
+    ],
+    "should_not": [
+      {
+        "prompt": "Which embedding model should the retrieval pipeline use?",
+        "route": "car-part-retrieval"
+      },
+      {
+        "prompt": "Write the methodology chapter of my thesis",
+        "route": "thesis-helper"
+      }
+    ]
+  },
+  "backend-code-review": {
+    "should": [
+      "Review this Spring controller and repository diff",
+      "Is this Kafka consumer change safe to merge?",
+      "Check this PR for security and transaction issues"
+    ],
+    "should_not": [
+      {
+        "prompt": "Write unit tests for this service",
+        "route": "backend-testing"
+      },
+      {
+        "prompt": "Implement the new refund endpoint",
+        "route": "backend-job"
+      }
+    ]
+  },
+  "backend-debugging": {
+    "should": [
+      "Kafka consumer lag keeps growing and rebalances every few minutes",
+      "Redis connection errors spike under load, find the root cause",
+      "Latency doubled after yesterday's release, help me diagnose"
+    ],
+    "should_not": [
+      {
+        "prompt": "Design the pagination contract for a new list endpoint",
+        "route": "api-design"
+      },
+      {
+        "prompt": "Plan the rollout and rollback for next week's release",
+        "route": "backend-deployment"
+      }
+    ]
+  },
+  "backend-deployment": {
+    "should": [
+      "Build a pre-deployment checklist for this Spring Boot service",
+      "Plan a canary rollout with a rollback path for the migration",
+      "Dockerize this FastAPI service and set up the CI/CD pipeline"
+    ],
+    "should_not": [
+      {
+        "prompt": "The deploy is failing right now with exit code 137",
+        "route": "backend-debugging"
+      },
+      {
+        "prompt": "Write the release announcement for the team",
+        "route": "internship-communication"
+      }
+    ]
+  },
+  "backend-job": {
+    "should": [
+      "At my part-time job I need to add an idempotency key to the payments API",
+      "Refactor the job's order service to use Redis caching",
+      "Implement the new Kafka event for the job's inventory service"
+    ],
+    "should_not": [
+      {
+        "prompt": "My internship supervisor assigned me a bug in the reporting module",
+        "route": "software-internship"
+      },
+      {
+        "prompt": "Tune the CLIP embeddings for car parts",
+        "route": "car-part-retrieval"
+      }
+    ]
+  },
+  "backend-testing": {
+    "should": [
+      "Write Testcontainers integration tests for this repository class",
+      "What tests does this change to the checkout flow need?",
+      "Add pytest API tests for my FastAPI search endpoint"
+    ],
+    "should_not": [
+      {
+        "prompt": "Review this PR and give me a verdict",
+        "route": "backend-code-review"
+      },
+      {
+        "prompt": "Build the new feature end to end",
+        "route": "backend-job"
+      }
+    ]
+  },
+  "car-part-retrieval": {
+    "should": [
+      "Which embedding model should I use for car-part image search?",
+      "Design the FAISS indexing pipeline for my car-part dataset",
+      "How do I split and label the car-part images without leakage?"
+    ],
+    "should_not": [
+      {
+        "prompt": "Rewrite my thesis introduction to be more formal",
+        "route": "thesis-helper"
+      },
+      {
+        "prompt": "Quiz me on system design for my interview",
+        "route": "interview-prep"
+      }
+    ]
+  },
+  "continuous-improvement": {
+    "should": [
+      "Review how my-skill handled my last task",
+      "My workflow changed; update the relevant skills",
+      "Improve backend-code-review based on this feedback"
+    ],
+    "should_not": [
+      {
+        "prompt": "Review this pull request",
+        "route": "backend-code-review"
+      },
+      {
+        "prompt": "Audit all skills for overlap and quality scores",
+        "route": "skill-health-check"
+      }
+    ]
+  },
+  "data-engineering": {
+    "should": [
+      "Design a Debezium CDC pipeline from Postgres into the warehouse",
+      "How do I make an Airflow backfill idempotent?",
+      "Model this event stream with dbt layers"
+    ],
+    "should_not": [
+      {
+        "prompt": "Give me a 3-month study plan for data engineering",
+        "route": "learning-roadmap"
+      },
+      {
+        "prompt": "Add a REST endpoint to the job's service",
+        "route": "backend-job"
+      }
+    ]
+  },
+  "documentation": {
+    "should": [
+      "Write a README for this service from the actual code",
+      "Create an ADR for choosing pgvector over FAISS",
+      "Our setup guide is out of date, fix it"
+    ],
+    "should_not": [
+      {
+        "prompt": "Write my thesis abstract",
+        "route": "thesis-helper"
+      },
+      {
+        "prompt": "Draft my standup update for the supervisor",
+        "route": "internship-communication"
+      }
+    ]
+  },
+  "internship-communication": {
+    "should": [
+      "Draft my standup update about the blocked ticket",
+      "Write a message asking my supervisor to clarify the requirement",
+      "Help me explain a blocker professionally"
+    ],
+    "should_not": [
+      {
+        "prompt": "Fix the null pointer in the internship codebase",
+        "route": "software-internship"
+      },
+      {
+        "prompt": "Practice behavioral interview questions with me",
+        "route": "interview-prep"
+      }
+    ]
+  },
+  "interview-prep": {
+    "should": [
+      "Run a mock backend interview, one question at a time",
+      "Help me answer 'tell me about a time you failed' with STAR",
+      "How do I explain my car-part retrieval project in an interview?"
+    ],
+    "should_not": [
+      {
+        "prompt": "Make me a 6-week plan to prepare for interviews",
+        "route": "learning-roadmap"
+      },
+      {
+        "prompt": "Explain how Kafka consumer groups rebalance",
+        "route": "data-engineering"
+      }
+    ]
+  },
+  "learning-roadmap": {
+    "should": [
+      "Make a weekly plan to learn MLOps over 3 months",
+      "What should I learn next for data engineering?",
+      "Suggest a small project with milestones to practice system design"
+    ],
+    "should_not": [
+      {
+        "prompt": "Explain how Debezium handles schema changes",
+        "route": "data-engineering"
+      },
+      {
+        "prompt": "Ask me a Redis interview question",
+        "route": "interview-prep"
+      }
+    ]
+  },
+  "observability": {
+    "should": [
+      "What metrics should this Kafka consumer expose?",
+      "Design alerts and an SLO for the orders API",
+      "Write a runbook for consumer lag"
+    ],
+    "should_not": [
+      {
+        "prompt": "Production is down, find why",
+        "route": "backend-debugging"
+      },
+      {
+        "prompt": "Plan the deployment for next release",
+        "route": "backend-deployment"
+      }
+    ]
+  },
+  "production-delivery": {
+    "should": [
+      "Ship the search API to production end to end",
+      "Take this feature from idea to verified production with a retro",
+      "Deliver this end to end, with +1h/+24h validation"
+    ],
+    "should_not": [
+      {
+        "prompt": "Write tests for this one function",
+        "route": "backend-testing"
+      },
+      {
+        "prompt": "Just design the API contract",
+        "route": "api-design"
+      }
+    ]
+  },
+  "skill-health-check": {
+    "should": [
+      "Audit my skills for overlap and outdated triggers",
+      "Which of my skills should be merged or archived?",
+      "Run the monthly plugin health check"
+    ],
+    "should_not": [
+      {
+        "prompt": "Edit the backend-testing skill to add Go examples",
+        "route": "continuous-improvement"
+      },
+      {
+        "prompt": "I switched jobs, update my profile",
+        "route": "workflow-adapter"
+      }
+    ]
+  },
+  "software-internship": {
+    "should": [
+      "My internship team assigned me a bug in their billing module",
+      "Help me understand this unfamiliar internship codebase",
+      "Prepare a PR for the feature my supervisor assigned"
+    ],
+    "should_not": [
+      {
+        "prompt": "Write the status message to my supervisor",
+        "route": "internship-communication"
+      },
+      {
+        "prompt": "Add a cache to the part-time job's service",
+        "route": "backend-job"
+      }
+    ]
+  },
+  "thesis-helper": {
+    "should": [
+      "Outline my thesis methodology chapter",
+      "Turn these notes into a literature review section",
+      "Help me structure my defense presentation"
+    ],
+    "should_not": [
+      {
+        "prompt": "Implement the FAISS index for the project",
+        "route": "car-part-retrieval"
+      },
+      {
+        "prompt": "Mock interview me on my project",
+        "route": "interview-prep"
+      }
+    ]
+  },
+  "workflow-adapter": {
+    "should": [
+      "My internship ended, update my workflow profile",
+      "I'm moving from Spring Boot to Go at work",
+      "I finished the thesis experiments, shift my priorities",
+      "I'm changing jobs to data analyst; make my skills follow the new role"
+    ],
+    "should_not": [
+      {
+        "prompt": "Rewrite the description of the observability skill",
+        "route": "continuous-improvement"
+      },
+      {
+        "prompt": "Score every skill's quality",
+        "route": "skill-health-check"
+      }
+    ]
+  }
+}

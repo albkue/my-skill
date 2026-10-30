@@ -23,6 +23,8 @@ labels: ""
 
 ## Checklist
 
+- [ ] `python scripts/validate.py` passes (0 errors)
+- [ ] New/changed skill has 3 "should" + 2 "should_not" prompts in `evals/triggers.json`
 - [ ] `plugin.json` is valid (and only edited if manifest scope changed)
 - [ ] `SKILL.md` has valid YAML frontmatter (`name`, `description`, `version`, `author`)
 - [ ] Skill name is unique, lowercase, hyphenated, matches the folder

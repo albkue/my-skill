@@ -28,7 +28,7 @@ Own the *delivery* of an applied ML/CV result: from a promising experiment to an
 - Serving constraints: target latency/throughput, hardware (GPU availability), batch vs online.
 
 ## Workflow
-1. Read `docs/workflow-profile.md`; confirm the project stack and serving constraints.
+1. Read `docs/workflow-profile.md` and `docs/active-context.md`; confirm the project stack and serving constraints, and apply the active context's rules (its rules live in the profile's Contexts section).
 2. Write the **experiment charter**: deliverable + acceptance criteria ("correct artifacts, seeded reruns within tolerance, latency X on hardware Y") + named risks.
 3. Verify evaluation hygiene before any delivery work: a baseline exists, splits are leakage-safe, configs seeded, and a minimal rerun command works. If absent, doing this first is step zero.
 4. **Provenance audit**: list every number/artifact claimed; map each to its generating run/config; label any unverifiable number `[REP: rerun before claim]` — never present it as real.

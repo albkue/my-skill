@@ -4,7 +4,7 @@ You are working with the **my_skill** plugin — a self-improving personal engin
 workflow plugin (20 skills, 10 slash commands) originally built for Claude Code, but
 usable by any agent that can read markdown files.
 
-Version: 1.6.0 · License: MIT · Author: Sothy Eng ([albkue](https://github.com/albkue))
+Version: 1.10.0 · License: MIT · Author: Sothy Eng ([albkue](https://github.com/albkue))
 
 ## Universal rule: read the workflow profile first
 
@@ -54,11 +54,11 @@ plain markdown.
 | Read-only plugin quality audit (0–10 scores, overlap, vague triggers) | `skill-health-check` |
 | Professional messages to the internship team: standups, blockers, PR notes | `internship-communication` |
 | Retros / feedback → SKILL.md edits (gated self-improvement) | `continuous-improvement` |
-| Profile drift: "my job changed", "we moved to X", role/stack/priority updates | `workflow-adapter` |
+| Profile drift or role change: "my job changed", "I moved to X", "we moved to X", role/stack/priority updates | `workflow-adapter` |
 
 ⚠️ **Hard routing rule:** `backend-job` (paid work) and `software-internship`
 (internship) are separate contexts and never mix. If a request could belong to
-either and context is unstated, ask: *"Is this for your backend part-time job or
+either, context is unstated, and `docs/active-context.md` is `unset` or older than a day, ask: *"Is this for your backend part-time job or
 your software developer internship?"* before doing anything.
 
 ## Improvement loop (what makes this plugin self-improving)

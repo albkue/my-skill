@@ -26,7 +26,7 @@ Be the accountable spine of one deliverable: nothing ships as a pile of good int
 - Constraints from `docs/workflow-profile.md`: team release process, environments, deployment target.
 
 ## Workflow
-1. Read `docs/workflow-profile.md` + intake.
+1. Read `docs/workflow-profile.md`, `docs/active-context.md` (apply its rules at every gate; `job` means rollback plan and confirmation before Ship) + intake.
 2. **Phase map:** table of phases — Phase 1 Design, Phase 2 Plan, 3 Build, 4 Verify, 5 Ship, 6 Validate, 7 Close — each with owner skill, inputs, and exit criterion. Mark what already exists and with what evidence.
 3. For each incomplete phase in order:
    - Run the phase's owner skill (`api-design` for contracts, `backend-deployment` for release planning, etc.). **You sequence, they craft.**

@@ -26,7 +26,7 @@ Help plan, structure, write, and improve the final-year thesis: rigorous section
 ## Context intake
 - Thesis status (in progress / submitted / defense completed) from `docs/workflow-profile.md` before planning new work.
 Detect or confirm before starting (ask at most what is genuinely needed):
-- Which context: part-time paid backend work, internship, thesis / final-year project, personal project, or learning? Fall back to the active roles and projects in `docs/workflow-profile.md`; ask when it could be two different contexts.
+- Which context: one of the contexts defined in `docs/workflow-profile.md` ("Contexts")? Read `docs/active-context.md` first: if `Current` names a context set within the last day, use it, apply its rules, and do not ask. Otherwise fall back to the active roles and projects in `docs/workflow-profile.md`; ask when it could be two different contexts.
 - What is the desired output: a plan, code, a review, tests, documentation, a deployment plan, or research notes? Confirm if ambiguous.
 
 ## Workflow

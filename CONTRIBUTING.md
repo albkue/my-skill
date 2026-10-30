@@ -67,6 +67,7 @@ In this order, inside `# <Skill Title>`:
 - [ ] Workflow is numbered and reads the workflow profile first.
 - [ ] Adaptation rules present — no stack/job hard-coding (no company names, internal URLs, client data).
 - [ ] Quality checklist is checkable (each item is falsifiable).
+- [ ] `python scripts/validate.py` passes, and the skill has 3 "should" + 2 "should_not" prompts in `evals/triggers.json`.
 
 ## Test locally
 

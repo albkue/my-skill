@@ -26,10 +26,10 @@ Keep my-skill aligned with Sothy's actual workflow as it evolves: turn real usag
 - Which task/skill is the target — or "sweep everything"?
 - Was there a real task + final output to compare against? (most valuable evidence)
 - What specifically felt wrong: wrong routing, missing step, wrong depth, wrong format, wrong assumptions?
-- Does `docs/workflow-profile.md` still match reality? (outdated profile causes most mis-adaptation)
+- Does `docs/workflow-profile.md` (and `docs/active-context.md`) still match reality? (outdated profile causes most mis-adaptation)
 
 ## Workflow
-1. Read `docs/workflow-profile.md`; flag staleness (>3 months or contradiction) and resolve it first.
+1. Read `docs/workflow-profile.md`; flag staleness (>3 months or contradiction) and resolve it first. If `docs/usage-log.md` exists (written by the PostToolUse hook), read it too: skills never fired are candidates for archive, skills fired often with lessons are candidates for tightening.
 2. Identify the target: last-task review / named skill / profile drift / new repeated gap / periodic report.
 3. Gather evidence: original request text, the final output, and any rework Sothy did afterward. Read the target `SKILL.md` end to end.
 4. Diagnose against evidence:

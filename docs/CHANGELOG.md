@@ -6,6 +6,61 @@ All documented plugin changes. Newest first. Format: version — date — Added 
 
 (none — ready for next change)
 
+## 1.10.0 — 2026-10-30
+
+**Added**
+- Transition playbook in `workflow-adapter`: on a job/role change it builds a capability map for the new role, matches each capability to an existing my-skill skill, an installed non-my-skill skill, or a gap, and produces ONE approval-gated proposal (profile diff, new context with rules, `Defer to` list, at most 2-3 new skills drafted from the template only for real gaps, demote/retire candidates from the usage log).
+- Optional `- Defer to: <skills>` line per context in the profile; the `/my-skill` dispatcher (Step 3b) routes matching requests to those installed skills while still applying the context's rules.
+- `evals/transitions.json` — 4 role-change scenarios (internship to data engineer, data analyst move, thesis done, stack change) with expected profile changes, reuse, new skills, and retirements; validated for structure and skill names.
+
+**Changed**
+- `workflow-adapter` may now create NEW skill folders during an approved transition (it still never edits existing skills; that stays with `continuous-improvement`).
+- Validator checks the playbook exists and the scenario file is well-formed.
+
+**Migration notes**
+- No action needed. Say "my job changed to X" and `workflow-adapter` runs the playbook. The scenarios are for manual live testing; nothing runs them automatically.
+
+## 1.9.0 — 2026-10-30
+
+**Added**
+- `/my-skill:setup` — interviews a new user and generates their `docs/workflow-profile.md` (roles, projects, contexts, per-context safety rules).
+- `docs/workflow-profile.example.md` — neutral template for anyone adopting the plugin.
+- "Contexts" section in the workflow profile: contexts and their rules are now data, so users define their own.
+
+**Changed**
+- `/my-skill:today` accepts any context id defined in the profile (was a fixed list of four); per-context rules moved from `active-context.md` into the profile.
+- 15 skills' context-intake line and the `/my-skill` dispatcher menu read contexts from the profile instead of naming job/internship/thesis.
+- Validator checks `Current` against the profile's defined context ids.
+
+**Migration notes**
+- Existing profile keeps working; its four contexts (`job`, `internship`, `thesis`, `learning`) carried over unchanged.
+- Persona skills (`backend-job`, `software-internship`, `car-part-retrieval`, etc.) still name the original author's situation; see `docs/CUSTOMIZATION.md` section 2.
+
+## 1.8.0 — 2026-10-30
+
+**Added**
+- `docs/active-context.md` + `/my-skill:today <job|internship|thesis|learning>` — one switch for the day's context. Skills read it right after the workflow profile, skip the "job or internship?" question when it is set (within a day), and apply per-context rules (job: rollback plan and confirmation before prod changes; internship: supervisor questions, no job code; thesis: provenance and vault sync).
+- `hooks/hooks.json` + `scripts/log_skill.py` — PostToolUse hook on the Skill tool appends `date — skill — context` to `docs/usage-log.md` (git-ignored, local). `continuous-improvement` and `skill-health-check` read it to find unused and over-used skills with data.
+- Validator checks for the active-context file, hook wiring, and that `backend-job` / `software-internship` consult it.
+
+**Changed**
+- 15 skills' context-intake line, `backend-job`, `software-internship`, `applied-ai-delivery`, `production-delivery`, `workflow-adapter`, `my-skill` dispatcher and `AGENTS.md` routing rule now consult the active context before asking.
+
+**Migration notes**
+- Run `/my-skill:today <context>` at the start of a work block. Left `unset` or stale, behavior is identical to 1.7.0.
+- The hook needs Python on PATH. If it is missing the hook fails silently; skills are unaffected.
+
+## 1.7.0 — 2026-10-30
+
+**Added**
+- `scripts/validate.py` — stdlib-only plugin validator: frontmatter (name == folder, 1024-char description limit, "Do NOT use" boundary), profile-first rule, command targets, AGENTS.md routing coverage and version sync, CHANGELOG/manifest version sync, relative links, eval coverage.
+- `evals/triggers.json` — 3 "should trigger" + 2 "should not trigger (routes to X)" prompts for every skill (100 prompts), validated for coverage and valid routing targets.
+- `.github/workflows/validate.yml` — runs the validator on push and PR.
+
+**Changed**
+- PR template and CONTRIBUTING now require `python scripts/validate.py` to pass and new skills to add eval prompts.
+- ROADMAP: automated validation and eval set moved from Later to done.
+
 ## 1.6.0 — 2026-10-26
 
 **Added**
